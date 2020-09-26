@@ -26,7 +26,7 @@ namespace Essentials
                 initConfig();
             try { config = JObject.Parse(File.ReadAllText(configFile)); }
             catch { Console.WriteLine("Economic >> 配置文件 config.json 读取失败！"); }
-            Essentials.mcapi.runcmd(Function.Unicode(string.Format("scoreboard objectives add {0} dummy 玩家积分", config["scoreboard"])));
+            Essentials.mcapi.runcmd(string.Format("scoreboard objectives add {0} dummy 玩家积分", config["scoreboard"]));
         }
 
         /// <summary>

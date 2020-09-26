@@ -38,11 +38,11 @@ namespace Essentials
         {
             while (true)
             {
-                int Thirty = (int)config["time"] - 30;
-                const int Ten = 20;
-                const int Five = 5;
-                const int Three = 2;
-                const int One = 1;
+                int Thirty = (int)config["time"] - 30 * 1000;
+                const int Ten = 20 * 1000;
+                const int Five = 5 * 1000;
+                const int Three = 2 * 1000;
+                const int One = 1 * 1000;
                 Thread.Sleep(Thirty);
                 Function.tellraw("@a", CleanLanguage.thirty);
                 Thread.Sleep(Ten);
@@ -57,6 +57,7 @@ namespace Essentials
                 Function.tellraw("@a", CleanLanguage.one);
                 Thread.Sleep(One);
                 Essentials.mcapi.runcmd("kill @e[type=item]");
+                Function.tellraw("@a", CleanLanguage.success);
             }
         }
     }

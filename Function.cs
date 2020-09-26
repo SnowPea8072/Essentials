@@ -36,24 +36,6 @@ namespace Essentials
             }
             return str;
         }
-        
-        /// <summary>
-        /// 字符串转 Unicode 代码
-        /// </summary>
-        /// <param name="text">需要转换的字符串</param>
-        /// <returns>转换后的字符串</returns>
-        internal static string Unicode(string text)
-        {
-            byte[] buffer;
-            char[] charbuffers = text.ToCharArray();
-            var textX = new StringBuilder();
-            foreach (char charbuffer in charbuffers)
-            {
-                buffer = Encoding.Unicode.GetBytes(charbuffer.ToString());
-                textX.Append(string.Format("\\u{0:X2}{1:X2}", buffer[1], buffer[0]));
-            }
-            return textX.ToString();
-        }
 
         /// <summary>
         /// 获取玩家的 uuid
@@ -74,14 +56,14 @@ namespace Essentials
         /// </summary>
         /// <param name="name">玩家名称</param>
         /// <param name="text">发送的文本</param>
-        internal static void tellraw(string name, string text) => Essentials.mcapi.runcmd(Unicode("tellraw " + name + " \"rawtext\":[{\"text\":\"" + text + "\"}]"));
+        internal static void tellraw(string name, string text) => Essentials.mcapi.runcmd("tellraw " + name + " {\"rawtext\":[{\"text\":\"" + text + "\"}]}");
         
         /// <summary>
         /// 调用 title 方法
         /// </summary>
         /// <param name="name">玩家名称</param>
         /// <param name="text">发送的文本</param>
-        internal static void title(string name, string text) => Essentials.mcapi.runcmd(Unicode(string.Format("title {0} title {1}", name, text)));
+        internal static void title(string name, string text) => Essentials.mcapi.runcmd(string.Format("title {0} title {1}", name, text));
 
         #endregion
 

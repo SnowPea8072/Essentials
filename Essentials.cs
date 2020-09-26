@@ -34,7 +34,7 @@ namespace Essentials
 
             // var config = JObject.Parse(File.ReadAllText(configFile));
             Economic.init();
-            // CleanRobot.init();
+            CleanRobot.init();
             /* if (config["tpa"])
                 Tpa.init(mcapi);
             if (config["tpr"])
